@@ -1,6 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JetClientState">
+    <option name="folders">
+      <list>
+        <folderState>
+          <option name="folders">
+            <list>
+              <folderState>
+                <option name="id" value="a4e14120-6f4a-4af6-9a46-c545d970d3a2" />
+                <option name="name" value="restaurants" />
+                <option name="requests">
+                  <list>
+                    <requestState>
+                      <option name="body">
+                        <bodyState>
+                          <option name="formData">
+                            <list>
+                              <formDataParameterState>
+                                <option name="key" value="name" />
+                                <option name="value" value="name-1" />
+                              </formDataParameterState>
+                              <formDataParameterState>
+                                <option name="key" value="image" />
+                                <option name="type" value="FILE" />
+                                <option name="value" value="$USER_HOME$/Desktop/nest74.jpeg" />
+                              </formDataParameterState>
+                              <formDataParameterState>
+                                <option name="key" value="city" />
+                                <option name="value" value="ismalia" />
+                              </formDataParameterState>
+                              <formDataParameterState>
+                                <option name="key" value="address" />
+                                <option name="value" value="15 b mazadat area" />
+                              </formDataParameterState>
+                            </list>
+                          </option>
+                          <option name="type" value="FORM_DATA" />
+                        </bodyState>
+                      </option>
+                      <option name="headers">
+                        <list>
+                          <headerState>
+                            <option name="key" value="Content-Type" />
+                            <option name="value" value="multipart/form-data" />
+                          </headerState>
+                        </list>
+                      </option>
+                      <option name="id" value="75758696-9827-4854-bb36-3600657ce481" />
+                      <option name="method" value="POST" />
+                      <option name="name" value="Create Restaurant" />
+                      <option name="url" value="http://localhost:8000/api/v1/restaurants" />
+                    </requestState>
+                    <requestState>
+                      <option name="id" value="192fe4a9-2e79-4298-9228-a8fe9e99e856" />
+                      <option name="method" value="GET" />
+                      <option name="name" value="Get All Restaurant" />
+                      <option name="queryParams">
+                        <list>
+                          <queryParamState>
+                            <option name="key" value="keyword" />
+                            <option name="value" value="name-1" />
+                          </queryParamState>
+                        </list>
+                      </option>
+                      <option name="url" value="http://localhost:8000/api/v1/restaurants?keyword=name-1" />
+                    </requestState>
+                    <requestState>
+                      <option name="id" value="b85430a8-c4a9-4e1c-8b33-dda7f8b37b4a" />
+                      <option name="method" value="GET" />
+                      <option name="name" value="Get  Specific Restaurant " />
+                      <option name="url" value="http://localhost:8000/api/v1/restaurants/64ab1f2c9c88ce9fb4ae13fd" />
+                    </requestState>
+                    <requestState>
+                      <option name="id" value="4c5ef3fe-f89c-458a-bdeb-6eb7ce557967" />
+                      <option name="method" value="DELETE" />
+                      <option name="name" value="Delete  Specific Restaurant " />
+                      <option name="url" value="http://localhost:8000/api/v1/restaurants/64ab1f2c9c88ce9fb4ae13fd" />
+                    </requestState>
+                  </list>
+                </option>
+                <option name="sortWeight" value="1000000" />
+              </folderState>
+              <folderState>
+                <option name="id" value="729f0e41-2cba-49a9-ab25-cb162e4436bf" />
+                <option name="name" value="meals" />
+                <option name="sortWeight" value="2000000" />
+              </folderState>
+            </list>
+          </option>
+          <option name="id" value="0ee91f76-7384-4b4a-b4fe-1bd1e30bcd09" />
+          <option name="name" value="restaurants-api" />
+          <option name="sortWeight" value="1000000" />
+          <option name="syncProperties">
+            <synchronizationPropertiesState>
+              <option name="folderPath" value="$PROJECT_DIR$/.jetclient" />
+            </synchronizationPropertiesState>
+          </option>
+        </folderState>
+      </list>
+    </option>
     <option name="id" value="d6c5d517-3377-4d4c-9ca7-62caa080846b" />
   </component>
 </project>
