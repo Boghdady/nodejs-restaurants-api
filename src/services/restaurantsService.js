@@ -3,26 +3,59 @@ const { v4: uuidv4 } = require("uuid");
 const sharp = require("sharp");
 
 const factory = require("./handlersFactory");
-const { uploadSingleImage } = require("../middlewares/uploadImageMiddleware");
+const {
+  uploadSingleImage,
+  uploadMixOfImages
+} = require("../middlewares/uploadImageMiddleware");
 const Restaurants = require("../models/restaurantsModel");
 
-// Upload single image
-exports.uploadRestaurantImage = uploadSingleImage("image");
+exports.uploadRestaurantImages = uploadMixOfImages([
+  {
+    name: "logo",
+    maxCount: 1
+  },
+  {
+    name: "images",
+    maxCount: 5
+  }
+]);
 
-// Image processing
-exports.resizeImage = asyncHandler(async (req, res, next) => {
-  const filename = `restaurant-${uuidv4()}-${Date.now()}.jpeg`;
+exports.resizeRestaurantImages = asyncHandler(async (req, res, next) => {
+  // console.log(req.files);
+  //1- Image processing for imageCover
+  if (req.files.logo) {
+    const logoFileName = `product-${uuidv4()}-${Date.now()}-logo.jpeg`;
 
-  await sharp(req.file.buffer)
-    .resize(600, 600)
-    .toFormat("jpeg")
-    .jpeg({ quality: 95 })
-    .toFile(`src/uploads/restaurants/${filename}`);
+    await sharp(req.files.logo[0].buffer)
+      .resize(2000, 1333)
+      .toFormat("jpeg")
+      .jpeg({ quality: 95 })
+      .toFile(`src/uploads/restaurants/${logoFileName}`);
 
-  // Save image into our db
-  req.body.image = filename;
+    // Save image into our db
+    req.body.logo = logoFileName;
+  }
+  //2- Image processing for images
+  if (req.files.images) {
+    req.body.images = [];
+    await Promise.all(
+      req.files.images.map(async (img, index) => {
+        const imageName = `restaurant-${uuidv4()}-${Date.now()}-${index +
+          1}.jpeg`;
 
-  next();
+        await sharp(img.buffer)
+          .resize(2000, 1333)
+          .toFormat("jpeg")
+          .jpeg({ quality: 95 })
+          .toFile(`src/uploads/restaurants/${imageName}`);
+
+        // Save image into our db
+        req.body.images.push(imageName);
+      })
+    );
+
+    next();
+  }
 });
 
 // @desc    Get list of restaurants

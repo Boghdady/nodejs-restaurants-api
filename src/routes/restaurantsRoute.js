@@ -5,8 +5,8 @@ const {
   createRestaurant,
   updateRestaurant,
   deleteRestaurant,
-  uploadRestaurantImage,
-  resizeImage,
+  uploadRestaurantImages,
+  resizeRestaurantImages,
   getRestaurants
 } = require("../services/restaurantsService");
 
@@ -15,11 +15,11 @@ const router = express.Router();
 router
   .route("/")
   .get(getRestaurants)
-  .post(uploadRestaurantImage, resizeImage, createRestaurant);
+  .post(uploadRestaurantImages, resizeRestaurantImages, createRestaurant);
 router
   .route("/:id")
   .get(getRestaurant)
-  .put(uploadRestaurantImage, resizeImage, updateRestaurant)
+  .put(uploadRestaurantImages, resizeRestaurantImages, updateRestaurant)
   .delete(deleteRestaurant);
 
 module.exports = router;
